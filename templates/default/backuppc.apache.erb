@@ -1,0 +1,23 @@
+###############################################################################
+# This file is managed by Chef, using the backuppc-server cookbook.           #
+# Editing this file by hand is highly discouraged!                            #
+###############################################################################
+
+Alias /<%= File.basename(node['backuppc']['assets_path']) %> <%= node['backuppc']['assets_path'] %>
+<Directory <%= node['backuppc']['assets_path'] %>>
+  Options All
+  AllowOverride All
+  order allow,deny
+  allow from all
+</Directory>
+
+SCGIMount / 127.0.0.1:<%= node['backuppc']['scgi_port'] %>
+
+<% if node['backuppc']['apache']['htpasswd'].any? -%>
+<Location />
+  AuthType basic
+  AuthUserFile <%= node['backuppc']['conf_path'] %>/htpasswd
+  AuthName "BackupPC Community Edition Administrative Interface"
+  require valid-user
+</Location>
+<% end -%>

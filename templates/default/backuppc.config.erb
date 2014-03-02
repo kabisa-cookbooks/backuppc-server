@@ -1,0 +1,59 @@
+###############################################################################
+# This file is managed by Chef, using the backuppc-server cookbook.           #
+# Editing this file by hand is highly discouraged!                            #
+###############################################################################
+
+#============================================================= -*-perl-*-
+#
+# Configuration file for BackupPC.
+#
+# DESCRIPTION
+#
+#   This is the main configuration file for BackupPC.
+#
+#   This file must be valid perl source, so make sure the punctuation,
+#   quotes, and other syntax are valid.
+#
+#   This file is read by BackupPC at startup, when a HUP (-1) signal
+#   is sent to BackupPC and also at each wakeup time whenever the
+#   modification time of this file changes.
+#
+#   The configuration parameters are divided into four general groups.
+#   The first group (general server configuration) provides general
+#   configuration for BackupPC.  The next two groups describe what
+#   to backup, when to do it, and how long to keep it.  The fourth
+#   group are settings for the CGI http interface.
+#
+#   Configuration settings can also be specified on a per-PC basis.
+#   Simply put the relevant settings in a config.pl file in the
+#   PC's backup directory (ie: in __TOPDIR__/pc/hostName).
+#   All configuration settings in the second, third and fourth
+#   groups can be overridden by the per-PC config.pl file.
+#
+# AUTHOR
+#   Craig Barratt  <cbarratt@users.sourceforge.net>
+#
+# COPYRIGHT
+#   Copyright (C) 2001-2013  Craig Barratt
+#
+#   See http://backuppc.sourceforge.net.
+#
+#========================================================================
+
+<% node['backuppc']['conf'].each do |key, value| -%>
+$Conf{<%= key %>} = <%=
+  if value.kind_of?(Array)
+    value
+  elsif value.kind_of?(String) && value[0] == '[' && value[-1] == ']'
+    value
+  elsif value.kind_of?(String) && value[0] == '{' && value[-1] == '}'
+    value
+  elsif value == 'undef'
+    value
+  elsif value.kind_of?(String)
+    "'#{value}'"
+  else
+    value
+  end
+-%>;
+<% end -%>
