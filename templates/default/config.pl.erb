@@ -40,15 +40,13 @@
 #
 #========================================================================
 
-<% node['backuppc']['conf'].each do |key, value| -%>
+<% node['bpc']['config'].each do |key, value| -%>
 $Conf{<%= key %>} = <%=
-  if value.kind_of?(Array)
-    value
-  elsif value.kind_of?(String) && value[0] == '[' && value[-1] == ']'
-    value
-  elsif value.kind_of?(String) && value[0] == '{' && value[-1] == '}'
-    value
-  elsif value == 'undef'
+  h = %w([ ] { })
+
+  if value.kind_of?(NilClass)
+    'undef'
+  elsif value.kind_of?(String) && h.include?(value[0]) && h.include?(value[-1])
     value
   elsif value.kind_of?(String)
     "'#{value}'"

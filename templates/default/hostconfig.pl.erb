@@ -3,6 +3,18 @@
 # Editing this file by hand is highly discouraged!                            #
 ###############################################################################
 
-<% node['bpc']['htpasswd'].split(',').each do |auth| -%>
-<%= auth %>
+<% @configs.each do |key, value| -%>
+$Conf{<%= key %>} = <%=
+  h = %w([ ] { })
+
+  if value.kind_of?(NilClass)
+    'undef'
+  elsif value.kind_of?(String) && h.include?(value[0]) && h.include?(value[-1])
+    value
+  elsif value.kind_of?(String)
+    "'#{value}'"
+  else
+    value
+  end
+-%>;
 <% end -%>

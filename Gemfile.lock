@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.5)
-    berkshelf (3.0.0.beta6)
+    berkshelf (3.0.0.beta7)
       addressable (~> 2.3.4)
       berkshelf-api-client (~> 1.1)
       buff-config (~> 0.2)
@@ -137,5 +137,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  berkshelf (= 3.0.0.beta6)
+  berkshelf (= 3.0.0.beta7)
   chef (= 11.10.0)

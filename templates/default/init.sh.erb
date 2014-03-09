@@ -20,16 +20,16 @@
 #
 #   Startup init script for BackupPC on Debian.
 #
-# Distributed with BackupPC version <%= node['backuppc']['version'] %>.
+# Distributed with BackupPC version <%= node['bpc']['version'] %>.
 #
 
 set -e
 
-BINDIR=<%= node['backuppc']['home_path'] %>/bin
-#DATADIR=<%= node['backuppc']['data_path'] %>
-PIDDIR=<%= node['backuppc']['run_path'] %>
-#LOGDIR=<%= node['backuppc']['log_path'] %>
-USER=<%= node['backuppc']['user'] %>
+BINDIR=<%= node['bpc']['home_path'] %>/bin
+#DATADIR=<%= node['bpc']['data_path'] %>
+PIDDIR=<%= node['bpc']['run_path'] %>
+#LOGDIR=<%= node['bpc']['log_path'] %>
+USER=<%= node['bpc']['user'] %>
 NAME=backuppc
 DAEMON=BackupPC
 

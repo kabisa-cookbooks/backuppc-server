@@ -15,4 +15,7 @@ version          read('VERSION', '0.1.0')
 supports 'debian', '~> 7.1.0'
 
 depends 'apache2', '~> 1.9.6'
+depends 'build-essential', '~> 1.4.4'
 depends 'perl', '~> 1.2.2'
+depends 'postfix', '~> 3.1.4'
+depends 'sudo', '~> 2.5.2'

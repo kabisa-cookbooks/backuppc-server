@@ -3,20 +3,20 @@
 # Editing this file by hand is highly discouraged!                            #
 ###############################################################################
 
-Alias /<%= File.basename(node['backuppc']['assets_path']) %> <%= node['backuppc']['assets_path'] %>
-<Directory <%= node['backuppc']['assets_path'] %>>
+Alias /<%= File.basename(node['bpc']['assets_path']) %> <%= node['bpc']['assets_path'] %>
+<Directory <%= node['bpc']['assets_path'] %>>
   Options All
   AllowOverride All
   order allow,deny
   allow from all
 </Directory>
 
-SCGIMount / 127.0.0.1:<%= node['backuppc']['scgi_port'] %>
+SCGIMount / 127.0.0.1:<%= node['bpc']['scgi_port'] %>
 
-<% if node['backuppc']['apache']['htpasswd'].any? -%>
+<% unless node['bpc']['htpasswd'].empty? -%>
 <Location />
   AuthType basic
-  AuthUserFile <%= node['backuppc']['conf_path'] %>/htpasswd
+  AuthUserFile <%= node['bpc']['conf_path'] %>/htpasswd
   AuthName "BackupPC Community Edition Administrative Interface"
   require valid-user
 </Location>
