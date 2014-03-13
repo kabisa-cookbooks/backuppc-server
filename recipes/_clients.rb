@@ -35,10 +35,10 @@ ruby_block 'build_client_backup_configs' do
       end
     end
 
-    bag_name = node['bpc']['standalone']['databag_name']
-    if node['bpc']['standalone']['enabled'] && Chef::DataBag.list.key?(bag_name)
-      data_bag(bag_name).each do |id|
-        build_config_for(data_bag_item(bag_name, id), client_configs)
+    name = node['bpc']['standalone']['databag_name']
+    if node['bpc']['standalone']['enabled'] && Chef::DataBag.list.key?(name)
+      data_bag(name).each do |id|
+        build_config_for(data_bag_item(name, id), client_configs)
       end
     end
 

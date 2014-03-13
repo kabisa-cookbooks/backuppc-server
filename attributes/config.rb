@@ -443,10 +443,10 @@ conf['IncrPeriod'] = 0.97
 #     or view backups.  So having periodic filled backups makes it more
 #     efficient to view or restore older backups.
 #
-#   - more importantly, in V4+, deleting backups is done based on Fill/Unfilled,
-#     not whether the original backup was full/incremental.  If there aren't
-#     any filled backups (other than the most recent), then the FillKeepPeriod
-#     settings won't have any effect.
+#   - more importantly, in V4+, deleting backups is done based on
+#     Fill/Unfilled, not whether the original backup was full/incremental.  If
+#     there aren't any filled backups (other than the most recent), then the
+#     FillKeepPeriod settings won't have any effect.
 #
 conf['FillCycle'] = 7
 
@@ -926,8 +926,8 @@ conf['SmbClientPath'] = ''
 # needs to be a full path and you can't include shell syntax like
 # redirection and pipes; put that in a script if you need it.
 #
-conf['SmbClientFullCmd'] = '$smbClientPath \\\\$host\\$shareName' +
-                           ' $I_option -U $userName -E -d 1' +
+conf['SmbClientFullCmd'] = '$smbClientPath \\\\$host\\$shareName' \
+                           ' $I_option -U $userName -E -d 1' \
                            ' -c tarmode\\ full -Tc$X_option - $fileList'
 
 #
@@ -940,8 +940,8 @@ conf['SmbClientFullCmd'] = '$smbClientPath \\\\$host\\$shareName' +
 # needs to be a full path and you can't include shell syntax like
 # redirection and pipes; put that in a script if you need it.
 #
-conf['SmbClientIncrCmd'] = '$smbClientPath \\\\$host\\$shareName' +
-                           ' $I_option -U $userName -E -d 1 -c tarmode\\' +
+conf['SmbClientIncrCmd'] = '$smbClientPath \\\\$host\\$shareName' \
+                           ' $I_option -U $userName -E -d 1 -c tarmode\\' \
                            ' full -TcN$X_option $timeStampFile - $fileList'
 
 #
@@ -958,8 +958,8 @@ conf['SmbClientIncrCmd'] = '$smbClientPath \\\\$host\\$shareName' +
 # needs to be a full path and you can't include shell syntax like
 # redirection and pipes; put that in a script if you need it.
 #
-conf['SmbClientRestoreCmd'] = '$smbClientPath \\\\$host\\$shareName' +
-                              ' $I_option -U $userName -E -d 1' +
+conf['SmbClientRestoreCmd'] = '$smbClientPath \\\\$host\\$shareName' \
+                              ' $I_option -U $userName -E -d 1' \
                               ' -c tarmode\\ full -Tx -'
 
 ###########################################################################
@@ -1304,11 +1304,11 @@ conf['RsyncRestoreArgs'] = [
             '--partial',
             '--log-format=log: %o %i %B %8U,%8G %9l %f%L',
             '--stats',
-      #
-      # Add additional arguments here
-      #
-            #'--acls',
-            #'--xattrs',
+            #
+            # Add additional arguments here
+            #
+            # '--acls',
+            # '--xattrs',
 ]
 
 ###########################################################################
@@ -1477,9 +1477,9 @@ conf['ArchiveSplit'] = 100
 # needs to be a full path and you can't include shell syntax like
 # redirection and pipes; put that in a script if you need it.
 #
-conf['ArchiveClientCmd'] = '$Installdir/bin/BackupPC_archiveHost' +
-                           ' $tarCreatePath $splitpath $parpath $host' +
-                           ' $backupnumber $compression $compext $splitsize' +
+conf['ArchiveClientCmd'] = '$Installdir/bin/BackupPC_archiveHost' \
+                           ' $tarCreatePath $splitpath $parpath $host' \
+                           ' $backupnumber $compression $compext $splitsize' \
                            ' $archiveloc $parfile *'
 
 #
