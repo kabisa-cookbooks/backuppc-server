@@ -66,7 +66,10 @@ ruby_block 'build_client_backup_configs' do
           'ClientNameAlias' => client['ipaddress'],
           'RsyncShareName' => client['shares'],
           'BackupFilesExclude' => client['excludes'].flatten.uniq,
-          'BackupFilesOnly' => client['includes'].flatten.uniq
+          'BackupFilesOnly' => client['includes'].flatten.uniq,
+          'RsyncArgsExtra' => client['config']['RsyncArgsExtra'].to_a +
+            client['includes'].flatten.map { |i| ['--include', i] }.flatten +
+            client['excludes'].flatten.map { |e| ['--exclude', e] }.flatten
         )
       )
       conf.run_action(:create)
