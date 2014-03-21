@@ -3,7 +3,7 @@ include_recipe 'perl::default'
 package 'libexpat1-dev'
 package 'zlib1g-dev'
 
-%w[ File::Listing
+%w( File::Listing
     Archive::Zip
     XML::Parser
     XML::RSS
@@ -11,7 +11,7 @@ package 'zlib1g-dev'
     Net::FTP::RetrHandle
     Net::FTP::AutoReconnect
     SCGI
-  ].each { |mod| cpan_module(mod) { force(true) } }
+  ).each { |mod| cpan_module(mod) { force(true) } }
 
 remote_file 'perl_backuppc_xs' do
   action   :create

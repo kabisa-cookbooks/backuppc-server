@@ -117,7 +117,7 @@ remote_file 'backuppc_server' do
 end
 
 params =
-  if File.exists?("#{node['bpc']['conf_path']}/config.pl")
+  if File.exist?("#{node['bpc']['conf_path']}/config.pl")
     ['--batch', "--config-path #{node['bpc']['conf_path']}/config.pl"]
   else
     ['--batch',

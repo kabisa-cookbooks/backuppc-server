@@ -1289,26 +1289,26 @@ conf['RsyncArgsExtra'] = []
 # Note: $Conf{RsyncArgsExtra} doesn't apply to $Conf{RsyncRestoreArgs}.
 #
 conf['RsyncRestoreArgs'] = [
-            '--recursive',
-            '--super',
-            '--protect-args',
-            '--numeric-ids',
-            '--perms',
-            '--owner',
-            '--group',
-            '-D',
-            '--times',
-            '--links',
-            '--hard-links',
-            '--delete',
-            '--partial',
-            '--log-format=log: %o %i %B %8U,%8G %9l %f%L',
-            '--stats',
-            #
-            # Add additional arguments here
-            #
-            # '--acls',
-            # '--xattrs',
+  '--recursive',
+  '--super',
+  '--protect-args',
+  '--numeric-ids',
+  '--perms',
+  '--owner',
+  '--group',
+  '-D',
+  '--times',
+  '--links',
+  '--hard-links',
+  '--delete',
+  '--partial',
+  '--log-format=log: %o %i %B %8U,%8G %9l %f%L',
+  '--stats',
+  #
+  # Add additional arguments here
+  #
+  # '--acls',
+  # '--xattrs',
 ]
 
 ###########################################################################

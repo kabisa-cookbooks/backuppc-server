@@ -1,7 +1,7 @@
 # Helps building client configurations for BackupPC
 #
 module ClientBuilder
-  CLIENT_OPTIONS = %w[
+  CLIENT_OPTIONS = %w(
     ipaddress
     name
     owner
@@ -10,7 +10,7 @@ module ClientBuilder
     includes
     excludes
     config
-  ] unless const_defined?(:CLIENT_OPTIONS)
+  ) unless const_defined?(:CLIENT_OPTIONS)
 
   def build_config_for(client, storage)
     @client = client
@@ -51,8 +51,8 @@ module ClientBuilder
   def configure_client_from_databag
     CLIENT_OPTIONS.each do |k|
       unless @client[k]
-        fail ArgumentError, %Q{"#{k}" attribute missing in } +
-                            %Q{"#{@client['id']}" data bag item}
+        fail ArgumentError, %Q("#{k}" attribute missing in ) +
+                            %Q("#{@client['id']}" data bag item)
       end
     end
 

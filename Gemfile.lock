@@ -94,7 +94,7 @@ GEM
       mixlib-shellout
       systemu (~> 2.5.2)
       yajl-ruby
-    parser (2.1.5)
+    parser (2.1.7)
       ast (~> 1.1)
       slop (~> 3.4, >= 3.4.5)
     powerpack (0.0.9)
@@ -126,11 +126,13 @@ GEM
       retryable
       solve (>= 0.4.4)
       varia_model (~> 0.3)
-    rubocop (0.18.1)
+    rubocop (0.19.1)
       json (>= 1.7.7, < 2)
-      parser (~> 2.1.3)
+      parser (~> 2.1.7)
       powerpack (~> 0.0.6)
       rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.4)
+    ruby-progressbar (1.4.2)
     sawyer (0.5.3)
       addressable (~> 2.3.5)
       faraday (~> 0.8, < 0.10)
@@ -150,4 +152,4 @@ PLATFORMS
 DEPENDENCIES
   berkshelf (= 3.0.0.beta7)
   chef (= 11.10.0)
-  rubocop (= 0.18.1)
+  rubocop (= 0.19.1)

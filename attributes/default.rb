@@ -99,12 +99,11 @@ override['build_essential']['compiletime'] = true
 #
 url = 'http://downloads.sourceforge.net/project/backuppc/backuppc-beta'
 
-default['bpc']['source'] = "#{url}/#{node['bpc']['version']}/" +
+default['bpc']['source'] = "#{url}/#{node['bpc']['version']}/" \
   "BackupPC-#{default['bpc']['version']}.tar.gz"
 
-default['bpc']['xs_source']   = "#{url}/#{node['bpc']['version']}/" +
+default['bpc']['xs_source']   = "#{url}/#{node['bpc']['version']}/" \
   "BackupPC-XS-#{default['bpc']['xs_version']}.tar.gz"
 
-default['bpc']['rs_source'] =
-  "#{url}/#{node['bpc']['version']}/" +
+default['bpc']['rs_source'] = "#{url}/#{node['bpc']['version']}/" \
   "rsync-bpc-#{default['bpc']['rs_version']}.tar.gz"
