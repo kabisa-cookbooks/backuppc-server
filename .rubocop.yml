@@ -1,2 +1,5 @@
 NumericLiterals:
   Enabled: false
+
+SingleSpaceBeforeFirstArg:
+  Enabled: false
