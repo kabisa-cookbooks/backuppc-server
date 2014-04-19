@@ -35,10 +35,10 @@ default['bpc']['client']['user'] = 'backupper'
 default['bpc']['ssh_private_key'] = ''
 
 # Password used to decrypt the private key. It is adviced to get this password
-# from an encrypted data bag. If set to `false`, it is assumed the private key
+# from an encrypted data bag. If set to `nil`, it is assumed the private key
 # is passwordless.
 #
-default['bpc']['ssh_password'] = false
+default['bpc']['ssh_password'] = nil
 
 # Version constraint for BackupPC application.
 #
