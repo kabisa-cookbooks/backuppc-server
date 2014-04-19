@@ -1719,14 +1719,14 @@ conf['MaxOldPerPCLogFiles'] = 30
 # needs to be a full path and you can't include shell syntax like
 # redirection and pipes; put that in a script if you need it.
 #
-conf['DumpPreUserCmd'] = nil
-conf['DumpPostUserCmd'] = nil
-conf['DumpPreShareCmd'] = nil
-conf['DumpPostShareCmd'] = nil
-conf['RestorePreUserCmd'] = nil
-conf['RestorePostUserCmd'] = nil
-conf['ArchivePreUserCmd'] = nil
-conf['ArchivePostUserCmd'] = nil
+conf['DumpPreUserCmd'] = 'true'
+conf['DumpPostUserCmd'] = 'true'
+conf['DumpPreShareCmd'] = 'true'
+conf['DumpPostShareCmd'] = 'true'
+conf['RestorePreUserCmd'] = 'true'
+conf['RestorePostUserCmd'] = 'true'
+conf['ArchivePreUserCmd'] = 'true'
+conf['ArchivePostUserCmd'] = 'true'
 
 #
 # Whether the exit status of each PreUserCmd and
@@ -1749,7 +1749,7 @@ conf['ArchivePostUserCmd'] = nil
 # that snapshots or dumps a database which fails because
 # of some database error.
 #
-conf['UserCmdCheckStatus'] = 0
+conf['UserCmdCheckStatus'] = 1
 
 #
 # Override the client's host name.  This allows multiple clients
