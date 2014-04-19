@@ -1,6 +1,6 @@
 # Backuppc-server cookbook
 
-Installs Backuppc 4 (alpha 3) server
+Installs BackupPC 4 (alpha 3) server
 
 ## Requirements
 
@@ -19,7 +19,7 @@ Installs Backuppc 4 (alpha 3) server
 ## Attributes
 
 See the [default][] and [config][] attribute files for configuration variables
-and their exlanation.
+and their explanation.
 
 [default]: attributes/default.rb
 [config]: attributes/config.rb
